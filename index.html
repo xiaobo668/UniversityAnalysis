@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ebe6f5" />
+    <title>中国大学排名与行业热度分析（示意）</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>中国大学排名 · 行业热度分析</h1>
+      <p class="lead">学校与专业采用「序号 + 横向热度条 + 图标 + 热度值」榜单版式；另有行业选校、十年折线与海报 / 导图导出。</p>
+      <p class="disclaimer" id="disclaimer-slot"></p>
+    </header>
+
+    <nav class="main-nav" aria-label="页面导航">
+      <a href="#sec-rank" data-nav>学校排名</a>
+      <a href="#sec-major" data-nav>专业排名</a>
+      <a href="#sec-industry" data-nav>专业选校</a>
+      <a href="#sec-trend" data-nav>行业趋势</a>
+      <a href="#sec-visual" data-nav>海报与导图</a>
+    </nav>
+
+    <main>
+      <section class="block" id="sec-rank">
+        <h2>学校排名</h2>
+        <p class="sub">示意综合热度条形榜：序号、校名比例条、条尾图标与右侧热度（非官方数据）。</p>
+        <div class="rank-board rank-board--uni" id="rank-board-uni" aria-label="学校热度排名"></div>
+      </section>
+
+      <section class="block" id="sec-major">
+        <h2>专业排名</h2>
+        <p class="sub">本科热门专业 TOP20 示意：版式与学校榜一致，图标为独立设计的线性符号。</p>
+        <div class="rank-board rank-board--major" id="rank-board-major" aria-label="专业热度排名"></div>
+      </section>
+
+      <section class="block" id="sec-industry">
+        <h2>按专业选校 · 十大热门行业</h2>
+        <p class="sub">行业标签与详情标题后附示意热度；以下为各学科与就业口碑综合参考的优势校 Top10。</p>
+        <div class="industry-tabs" id="industry-tabs"></div>
+        <div class="industry-panel" id="industry-panel"></div>
+      </section>
+
+      <section class="block" id="sec-trend">
+        <h2>近十年热门行业热度</h2>
+        <p class="sub">折线为示意热度指数；横轴为 2016–2025 全年份，可拖动底部滑块或双指缩放查看。</p>
+        <div class="chart-toolbar">
+          <button type="button" id="btn-chart-replay">重新播放动画</button>
+          <span class="hint">点击可重播折线入场动画</span>
+        </div>
+        <div id="trend-chart" role="img" aria-label="行业热度折线图"></div>
+      </section>
+
+      <section class="block" id="sec-visual">
+        <h2>移动端海报与思维导图</h2>
+        <p class="sub">海报为 9:16 竖版，适合手机壁纸或分享；导图可右键保存 SVG 或使用下方导出。</p>
+        <div class="dual-col">
+          <div class="poster-wrap">
+            <div class="poster-frame">
+              <div id="poster-canvas">
+                <div>
+                  <div class="poster-brand">UNIVERSITY INSIGHT</div>
+                  <h3 class="poster-title">中国大学与<br />热门行业一览</h3>
+                  <p class="poster-sub" id="poster-subline"></p>
+                </div>
+                <div class="poster-stats">
+                  <div class="poster-stat">
+                    <div class="num" id="poster-n1">50</div>
+                    <div class="lbl">综合榜示意校数</div>
+                  </div>
+                  <div class="poster-stat">
+                    <div class="num" id="poster-n2">10</div>
+                    <div class="lbl">热门行业</div>
+                  </div>
+                  <div class="poster-stat">
+                    <div class="num" id="poster-n3">10</div>
+                    <div class="lbl">年跨度</div>
+                  </div>
+                  <div class="poster-stat">
+                    <div class="num" id="poster-n4">—</div>
+                    <div class="lbl">数据性质</div>
+                  </div>
+                </div>
+                <p class="poster-foot">仅供学习演示 · 择校请以官方信息为准</p>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button type="button" class="btn" id="btn-download-poster">下载海报 PNG</button>
+            </div>
+          </div>
+          <div>
+            <div class="btn-row" style="margin-bottom: 0.75rem">
+              <button type="button" class="btn secondary" id="btn-download-mindmap">尝试导出导图 PNG</button>
+            </div>
+            <div class="mindmap-box" id="mindmap-box">
+              <pre class="mermaid" id="mindmap-source"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-foot">本地静态页 · 无后端 · 可整站部署到任意静态托管</footer>
+
+    <script src="js/icons.js"></script>
+    <script src="js/data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
