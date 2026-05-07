@@ -61,9 +61,9 @@
 
   function renderRankMajors() {
     const root = $("#rank-board-major");
-    if (!root || !D.majorTop20 || typeof window.iconSvgForMajor !== "function") return;
-    const maxH = Math.max(...D.majorTop20.map((m) => m.heat));
-    const rows = D.majorTop20
+    if (!root || !D.majorTop10 || typeof window.iconSvgForMajor !== "function") return;
+    const maxH = Math.max(...D.majorTop10.map((m) => m.heat));
+    const rows = D.majorTop10
       .map((m) => {
         const pct = Math.max(22, Math.round((m.heat / maxH) * 100));
         const heat = heatWanFromHeat0to100(m.heat, maxH);
@@ -84,7 +84,7 @@
     root.innerHTML = `
       <div class="rank-board__head">
         <div class="rank-board__title">本科热门专业示意</div>
-        <div class="rank-board__topn">TOP 20</div>
+        <div class="rank-board__topn">TOP 10</div>
       </div>
       <div class="rank-board__cols" aria-hidden="true">
         <span>序号</span><span>热门专业</span><span>热度</span>
@@ -248,7 +248,7 @@
       学校条形热度榜
       Top20示意
     专业排名
-      本科Top20条形榜
+      本科Top10条形榜
     专业选校
       十大热门行业
       各行业Top10校

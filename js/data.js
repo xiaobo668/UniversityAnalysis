@@ -216,7 +216,7 @@ window.UNI_DATA = {
    * 本科热门专业 TOP20（示意名称与相对热度，用于条形榜展示）
    * heat 为 0–100，条长按同列表最大值归一。
    */
-  majorTop20: [
+  majorTop10: [
     { rank: 1, name: "计算机科学与技术", heat: 100, icon: "cs" },
     { rank: 2, name: "人工智能", heat: 97, icon: "ai" },
     { rank: 3, name: "电子信息工程", heat: 94, icon: "ee" },
@@ -227,16 +227,6 @@ window.UNI_DATA = {
     { rank: 8, name: "法学", heat: 84, icon: "law" },
     { rank: 9, name: "数据科学与大数据技术", heat: 82, icon: "data" },
     { rank: 10, name: "通信工程", heat: 80, icon: "comm" },
-    { rank: 11, name: "自动化", heat: 78, icon: "automation" },
-    { rank: 12, name: "会计学", heat: 76, icon: "accounting" },
-    { rank: 13, name: "机械设计制造及其自动化", heat: 74, icon: "mechanical" },
-    { rank: 14, name: "口腔医学", heat: 72, icon: "dental" },
-    { rank: 15, name: "数学与应用数学", heat: 70, icon: "math" },
-    { rank: 16, name: "新能源科学与工程", heat: 68, icon: "energy" },
-    { rank: 17, name: "集成电路设计与集成系统", heat: 66, icon: "ic" },
-    { rank: 18, name: "建筑学", heat: 64, icon: "arch" },
-    { rank: 19, name: "统计学", heat: 62, icon: "stats" },
-    { rank: 20, name: "网络空间安全", heat: 60, icon: "security" },
   ],
 
   /** 近十年行业热度指数（0–100，示意趋势，用于折线动画） */
