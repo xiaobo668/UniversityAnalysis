@@ -327,9 +327,9 @@ section.block h2::before {
 .industry-tabs button {
   font-family: inherit;
   cursor: pointer;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--muted);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: rgba(255, 235, 180, 0.15);
+  color: rgba(255, 235, 180, 0.8);
   padding: 0.4rem 0.65rem;
   border-radius: 999px;
   font-size: 0.78rem;
@@ -337,14 +337,16 @@ section.block h2::before {
 }
 
 .industry-tabs button:hover {
-  color: var(--text);
-  border-color: rgba(124, 106, 232, 0.25);
+  color: #ffd700;
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(255, 215, 0, 0.15);
 }
 
 .industry-tabs button.active {
-  background: var(--accent-soft);
-  border-color: rgba(124, 106, 232, 0.35);
-  color: var(--accent);
+  background: rgba(255, 215, 0, 0.85);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: #8b0000;
+  font-weight: 700;
 }
 
 .industry-tab-heat {
@@ -358,11 +360,12 @@ section.block h2::before {
 }
 
 .industry-panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: linear-gradient(165deg, #c41a1a 0%, #8b0000 50%, #a01010 100%);
+  border: 1px solid rgba(212, 175, 55, 0.25);
   border-radius: var(--radius);
   padding: 1rem 1.1rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3), inset 0 1px 0 rgba(255, 215, 0, 0.15);
+  color: #1a1a1a;
 }
 
 .industry-panel h3 {
@@ -372,21 +375,23 @@ section.block h2::before {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.35rem 0.6rem;
+  color: #ffd700;
+  font-weight: 700;
 }
 
 .industry-panel-heat {
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--muted);
+  color: #8b0000;
   font-variant-numeric: tabular-nums;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  background: rgba(124, 106, 232, 0.1);
-  border: 1px solid rgba(124, 106, 232, 0.18);
+  background: rgba(255, 215, 0, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .industry-panel .desc {
-  color: var(--muted);
+  color: rgba(255, 235, 180, 0.8);
   font-size: 0.85rem;
   margin-bottom: 1rem;
 }
@@ -399,8 +404,10 @@ section.block h2::before {
 
 .ol-top10 li {
   padding: 0.35rem 0;
-  border-bottom: 1px dashed var(--border);
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
   font-size: 0.9rem;
+  color: #1a1a1a;
+  font-weight: 500;
 }
 
 .ol-top10 li:last-child {
@@ -412,7 +419,8 @@ section.block h2::before {
   min-width: 1.5rem;
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: var(--accent);
+  color: #ffd700;
+  font-weight: 700;
   margin-right: 0.35rem;
 }
 
