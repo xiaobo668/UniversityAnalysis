@@ -446,7 +446,7 @@
         width: 375,
         useCORS: true,
         logging: false,
-        backgroundColor: "#ebe6f5",
+        backgroundColor: "#8b0000",
       });
 
       /* 清理临时 DOM */
