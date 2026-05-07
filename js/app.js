@@ -395,6 +395,14 @@
     /* 学校排名下载按钮 */
     const btnUniRank = $("#btn-download-uni-rank");
     if (btnUniRank) btnUniRank.addEventListener("click", downloadUniRankImage);
+
+    /* 专业排名下载按钮 */
+    const btnMajorRank = $("#btn-download-major-rank");
+    if (btnMajorRank) btnMajorRank.addEventListener("click", downloadMajorRankImage);
+
+    /* 行业选校下载按钮 */
+    const btnIndustry = $("#btn-download-industry");
+    if (btnIndustry) btnIndustry.addEventListener("click", downloadIndustryPanelImage);
   }
 
   /**
@@ -452,6 +460,126 @@
       /* 触发下载 */
       const a = document.createElement("a");
       a.download = "中国大学排名TOP20.png";
+      a.href = canvas.toDataURL("image/png");
+      a.click();
+    } catch (e) {
+      console.error(e);
+      alert("图片导出失败，请换用 Chrome / Edge 重试。");
+    } finally {
+      if (btn) btn.disabled = false;
+    }
+  }
+
+  /**
+   * 生成专业排名的截图卡片并下载为 PNG
+   * 尺寸：375×812，手机端一整屏分享
+   */
+  async function downloadMajorRankImage() {
+    const board = $("#rank-board-major");
+    const btn = $("#btn-download-major-rank");
+    if (!board || typeof html2canvas === "undefined") return;
+    if (btn) btn.disabled = true;
+
+    try {
+      const snapWrap = document.createElement("div");
+      snapWrap.className = "rank-snap-wrap";
+      snapWrap.style.cssText = "position:fixed;left:-9999px;top:0;z-index:-1;";
+
+      const card = document.createElement("div");
+      card.className = "rank-snap-card";
+      card.innerHTML = `
+        <div class="rank-snap-header">
+          <h3>本科热门专业排名 · 热度分析</h3>
+          <p>热门专业示意热度榜 TOP10（非官方数据，仅供学习演示）</p>
+        </div>
+      `;
+
+      const clonedBoard = board.cloneNode(true);
+      card.appendChild(clonedBoard);
+
+      const footer = document.createElement("div");
+      footer.className = "rank-snap-footer";
+      footer.textContent = "择校请以教育部、学校官网及权威榜单为准";
+      card.appendChild(footer);
+
+      snapWrap.appendChild(card);
+      document.body.appendChild(snapWrap);
+      await new Promise((r) => setTimeout(r, 100));
+
+      const canvas = await html2canvas(card, {
+        scale: 3,
+        width: 375,
+        useCORS: true,
+        logging: false,
+        backgroundColor: "#8b0000",
+      });
+
+      document.body.removeChild(snapWrap);
+
+      const a = document.createElement("a");
+      a.download = "本科热门专业排名TOP10.png";
+      a.href = canvas.toDataURL("image/png");
+      a.click();
+    } catch (e) {
+      console.error(e);
+      alert("图片导出失败，请换用 Chrome / Edge 重试。");
+    } finally {
+      if (btn) btn.disabled = false;
+    }
+  }
+
+  /**
+   * 生成行业选校面板的截图卡片并下载为 PNG
+   * 尺寸：375×812，手机端一整屏分享
+   */
+  async function downloadIndustryPanelImage() {
+    const panel = $("#industry-panel");
+    const tabs = $("#industry-tabs");
+    const btn = $("#btn-download-industry");
+    if (!panel || typeof html2canvas === "undefined") return;
+    if (btn) btn.disabled = true;
+
+    try {
+      const snapWrap = document.createElement("div");
+      snapWrap.className = "rank-snap-wrap";
+      snapWrap.style.cssText = "position:fixed;left:-9999px;top:0;z-index:-1;";
+
+      const card = document.createElement("div");
+      card.className = "rank-snap-card";
+      card.innerHTML = `
+        <div class="rank-snap-header">
+          <h3>按专业选校 · 十大热门行业</h3>
+          <p>各学科与就业口碑综合参考的优势校 Top10（非官方数据，仅供学习演示）</p>
+        </div>
+      `;
+
+      /* 克隆行业标签 + 面板内容 */
+      const tabsClone = tabs ? tabs.cloneNode(true) : null;
+      const panelClone = panel.cloneNode(true);
+      if (tabsClone) card.appendChild(tabsClone);
+      card.appendChild(panelClone);
+
+      const footer = document.createElement("div");
+      footer.className = "rank-snap-footer";
+      footer.textContent = "择校请以教育部、学校官网及权威榜单为准";
+      card.appendChild(footer);
+
+      snapWrap.appendChild(card);
+      document.body.appendChild(snapWrap);
+      await new Promise((r) => setTimeout(r, 100));
+
+      const canvas = await html2canvas(card, {
+        scale: 3,
+        width: 375,
+        useCORS: true,
+        logging: false,
+        backgroundColor: "#8b0000",
+      });
+
+      document.body.removeChild(snapWrap);
+
+      const a = document.createElement("a");
+      a.download = "按专业选校-热门行业.png";
       a.href = canvas.toDataURL("image/png");
       a.click();
     } catch (e) {
