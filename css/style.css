@@ -393,7 +393,8 @@ section.block h2::before {
 
 .ol-top10 {
   margin: 0;
-  padding-left: 1.25rem;
+  padding: 0;
+  list-style: none;
 }
 
 .ol-top10 li {

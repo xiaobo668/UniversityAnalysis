@@ -126,7 +126,7 @@
     panel.innerHTML = `
       <h3>${ind.name}<span class="industry-panel-heat">热度 ${ind.heat}/100</span></h3>
       <p class="desc">${ind.desc}</p>
-      <ol class="ol-top10">${list}</ol>
+      <ul class="ol-top10">${list}</ul>
     `;
   }
 
