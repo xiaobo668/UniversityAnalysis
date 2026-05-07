@@ -25,6 +25,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
   margin: 0;
   font-family: var(--font);
@@ -283,7 +287,7 @@ section.block h2::before {
   color: #1a1a1a;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: clip;
   flex: 1;
   min-width: 0;
   text-align: left;
@@ -301,6 +305,7 @@ section.block h2::before {
   color: #ffd700;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(212, 175, 55, 0.25);
+  display: none;
 }
 
 .rank-row__icon svg {
@@ -329,7 +334,7 @@ section.block h2::before {
   cursor: pointer;
   border: 1px solid rgba(212, 175, 55, 0.25);
   background: rgba(255, 235, 180, 0.15);
-  color: rgba(255, 235, 180, 0.8);
+  color: #1a1a1a;
   padding: 0.4rem 0.65rem;
   border-radius: 999px;
   font-size: 0.78rem;
@@ -337,7 +342,7 @@ section.block h2::before {
 }
 
 .industry-tabs button:hover {
-  color: #ffd700;
+  color: #1a1a1a;
   border-color: rgba(212, 175, 55, 0.5);
   background: rgba(255, 215, 0, 0.15);
 }
