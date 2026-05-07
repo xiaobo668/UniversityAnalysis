@@ -9,14 +9,14 @@
     if (el) el.textContent = D.disclaimer;
   }
 
-  function heatWanFromRank50(rank) {
-    const t = (rank - 1) / 49;
+  function heatWanFromRank20(rank) {
+    const t = (rank - 1) / 19;
     const v = 9.88 - t * 4.76;
     return `${v.toFixed(2)}万`;
   }
 
   function barPctUniversity(rank) {
-    const t = (rank - 1) / 49;
+    const t = (rank - 1) / 19;
     return Math.max(24, Math.round(100 - t * 58));
   }
 
@@ -29,10 +29,10 @@
   function renderRankUniversities() {
     const root = $("#rank-board-uni");
     if (!root || typeof window.iconSvgUni !== "function") return;
-    const rows = D.top50
+    const rows = D.top20
       .map((u, i) => {
         const pct = barPctUniversity(u.rank);
-        const heat = heatWanFromRank50(u.rank);
+        const heat = heatWanFromRank20(u.rank);
         const icon = window.iconSvgUni(i);
         return `
       <li class="rank-row">
@@ -50,7 +50,7 @@
     root.innerHTML = `
       <div class="rank-board__head">
         <div class="rank-board__title">综合院校示意 · 热度榜</div>
-        <div class="rank-board__topn">TOP 50</div>
+        <div class="rank-board__topn">TOP 20</div>
       </div>
       <div class="rank-board__cols" aria-hidden="true">
         <span>序号</span><span>学校</span><span>热度</span>
@@ -246,7 +246,7 @@
   root((中国大学分析示意))
     综合排名
       学校条形热度榜
-      Top50示意
+      Top20示意
     专业排名
       本科Top20条形榜
     专业选校
