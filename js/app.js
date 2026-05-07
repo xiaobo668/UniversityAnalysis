@@ -86,9 +86,6 @@
         <div class="rank-board__title">本科热门专业示意</div>
         <div class="rank-board__topn">TOP 10</div>
       </div>
-      <div class="rank-board__cols" aria-hidden="true">
-        <span>序号</span><span>热门专业</span><span>热度</span>
-      </div>
       <ul class="rank-board__list">${rows}</ul>
     `;
   }
