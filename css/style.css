@@ -619,6 +619,67 @@ section.block h2::before {
   height: auto;
 }
 
+/* —— 学校排名截图卡片（手机端一整屏尺寸） —— */
+.rank-snap-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.rank-snap-card {
+  width: 375px;
+  min-height: 812px;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 100% 70% at 50% -15%, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(ellipse 55% 45% at 100% 0%, rgba(186, 230, 253, 0.45), transparent),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(233, 213, 255, 0.5), transparent);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(72, 56, 120, 0.18);
+  padding: 1.2rem 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.rank-snap-card .rank-snap-header {
+  text-align: center;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.8rem;
+}
+
+.rank-snap-card .rank-snap-header h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.rank-snap-card .rank-snap-header p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.rank-snap-card .rank-board {
+  box-shadow: none;
+  border-color: rgba(88, 72, 120, 0.08);
+}
+
+.rank-snap-card .rank-board__topn {
+  font-size: 1.6rem;
+}
+
+.rank-snap-card .rank-snap-footer {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.68rem;
+  color: var(--muted);
+  opacity: 0.75;
+}
+
 footer.site-foot {
   text-align: center;
   padding: 1.5rem;

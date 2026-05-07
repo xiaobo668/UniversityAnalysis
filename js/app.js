@@ -394,6 +394,75 @@
     extra.style.marginLeft = "0";
     extra.addEventListener("click", downloadMindmapSvg);
     m?.parentElement?.appendChild(extra);
+
+    /* 学校排名下载按钮 */
+    const btnUniRank = $("#btn-download-uni-rank");
+    if (btnUniRank) btnUniRank.addEventListener("click", downloadUniRankImage);
+  }
+
+  /**
+   * 生成学校排名的手机端截图卡片并下载为 PNG
+   * 尺寸：375×812（iPhone 标准屏幕尺寸），适合手机一整屏分享
+   */
+  async function downloadUniRankImage() {
+    const board = $("#rank-board-uni");
+    const btn = $("#btn-download-uni-rank");
+    if (!board || typeof html2canvas === "undefined") return;
+    if (btn) btn.disabled = true;
+
+    try {
+      /* 创建一个隐藏的截图卡片容器 */
+      const snapWrap = document.createElement("div");
+      snapWrap.className = "rank-snap-wrap";
+      snapWrap.style.cssText = "position:fixed;left:-9999px;top:0;z-index:-1;";
+
+      const card = document.createElement("div");
+      card.className = "rank-snap-card";
+      card.innerHTML = `
+        <div class="rank-snap-header">
+          <h3>中国大学排名 · 行业热度分析</h3>
+          <p>综合院校示意热度榜 TOP20（非官方数据，仅供学习演示）</p>
+        </div>
+      `;
+
+      /* 克隆排名榜单 */
+      const clonedBoard = board.cloneNode(true);
+      card.appendChild(clonedBoard);
+
+      const footer = document.createElement("div");
+      footer.className = "rank-snap-footer";
+      footer.textContent = "择校请以教育部、学校官网及权威榜单为准";
+      card.appendChild(footer);
+
+      snapWrap.appendChild(card);
+      document.body.appendChild(snapWrap);
+
+      /* 等待样式渲染完成 */
+      await new Promise((r) => setTimeout(r, 100));
+
+      /* 使用 html2canvas 截图，375px 宽度 × 3x scale 保证清晰度 */
+      const canvas = await html2canvas(card, {
+        scale: 3,
+        width: 375,
+        useCORS: true,
+        logging: false,
+        backgroundColor: "#ebe6f5",
+      });
+
+      /* 清理临时 DOM */
+      document.body.removeChild(snapWrap);
+
+      /* 触发下载 */
+      const a = document.createElement("a");
+      a.download = "中国大学排名TOP20.png";
+      a.href = canvas.toDataURL("image/png");
+      a.click();
+    } catch (e) {
+      console.error(e);
+      alert("图片导出失败，请换用 Chrome / Edge 重试。");
+    } finally {
+      if (btn) btn.disabled = false;
+    }
   }
 
   renderDisclaimer();
